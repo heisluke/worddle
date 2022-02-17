@@ -23,3 +23,11 @@ before_deploy:
   - zip -r app.ipa Payload 
   - popd
 
+  deploy:
+  provider: releases
+  api_key:
+    secure: Gkro3KLL06WRIDwGZ9aVqQ
+  file: build/ios/iphoneos/app.ipa
+  skip_cleanup: true #important or your built app would be deleted
+  on:
+    repo: https://github.com/heisluke/worddle
